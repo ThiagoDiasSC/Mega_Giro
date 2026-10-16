@@ -36,9 +36,9 @@ function Login() {
     }, 1000)
   }
 
-  function handleRecuperarSenha() {
-    setErro('A recuperação de senha será implementada futuramente.')
-  }
+function handleRecuperarSenha() {
+  window.location.href = '/esqueci-senha'
+}
 
   return (
     <main className="login-page">
