@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --verde: #168343;
+    --verde-escuro: #116632;
+    --verde-claro: #eaf6ed;
+    --texto: #1f2937;
+    --cinza: #6b7280;
+    --borda: #dce5df;
+    --fundo: #f5f8f5;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, Arial, sans-serif; color: var(--texto); background: var(--fundo); }
+.pagina-login {
+    min-height: 100vh; display: flex; justify-content: center; align-items: center;
+    padding: 24px; background: linear-gradient(135deg, #eaf6ed 0%, #f8fbf8 55%, #d9efdf 100%);
+}
+.cartao-login {
+    width: 100%; max-width: 420px; background: #fff; border: 1px solid #e2ece4;
+    border-radius: 22px; padding: 36px; box-shadow: 0 22px 60px rgba(17, 102, 50, .12);
+}
+.marca { text-align: center; margin-bottom: 32px; }
+.icone-marca {
+    width: 66px; height: 66px; margin: 0 auto 14px; border-radius: 19px;
+    display: grid; place-items: center; color: #fff; background: var(--verde);
+    font-weight: 800; font-size: 22px; box-shadow: 0 8px 20px rgba(22, 131, 67, .2);
+}
+.marca h1 { margin: 0; font-size: 28px; letter-spacing: 1.5px; color: var(--verde-escuro); }
+.marca h1 span, .logo-pequena span { color: #7abf56; }
+.marca p { color: var(--cinza); font-size: 13px; margin: 8px 0 0; }
+.formulario h2 { font-size: 20px; margin: 0 0 22px; }
+label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+input, textarea {
+    width: 100%; border: 1px solid #d5ded7; border-radius: 10px; padding: 13px 14px;
+    background: #fff; color: var(--texto); font: inherit; font-size: 14px; outline: none;
+}
+input:focus, textarea:focus { border-color: var(--verde); box-shadow: 0 0 0 3px rgba(22, 131, 67, .1); }
+.formulario input { margin-bottom: 18px; }
+.botao {
+    border: 0; background: var(--verde); color: #fff; padding: 13px 18px; border-radius: 10px;
+    font: inherit; font-weight: 700; cursor: pointer; transition: background .2s, transform .2s;
+}
+.botao:hover { background: var(--verde-escuro); transform: translateY(-1px); }
+.formulario .botao { width: 100%; margin-top: 4px; }
+.rodape-login { text-align: center; font-size: 11px; color: #7b857e; margin: 24px 0 0; }
+.aviso { border-radius: 9px; padding: 11px 13px; margin: 12px 0; font-size: 13px; }
+.aviso.erro { color: #9b1c1c; background: #fff0f0; border: 1px solid #ffd2d2; }
+.aviso.sucesso { color: #126234; background: #edf9f0; border: 1px solid #c8ebd1; }
+.topo { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px max(24px, calc((100% - 1120px)/2)); background: #fff; border-bottom: 1px solid var(--borda); }
+.logo-pequena { font-weight: 800; letter-spacing: 1px; font-size: 21px; color: var(--verde-escuro); text-decoration: none; }
+.topo-direita { display: flex; align-items: center; gap: 18px; color: var(--cinza); font-size: 13px; }
+.link-sair { color: var(--verde-escuro); font-weight: 700; text-decoration: none; }
+.conteudo { max-width: 1120px; margin: 34px auto; padding: 0 22px; }
+.cabecalho-pagina { margin-bottom: 26px; }
+.sobretitulo { color: var(--verde); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; margin: 0 0 8px; }
+.cabecalho-pagina h1 { margin: 0; font-size: clamp(25px, 4vw, 34px); }
+.subtitulo { color: var(--cinza); font-size: 14px; margin: 9px 0 0; }
+.painel { background: #fff; border: 1px solid var(--borda); border-radius: 16px; padding: 24px; margin-bottom: 22px; box-shadow: 0 4px 14px rgba(25, 60, 35, .03); }
+.painel h2 { font-size: 18px; margin: 0 0 20px; }
+.grade-formulario { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
+.campo-largo { grid-column: 1 / -1; }
+.campo label { margin-bottom: 7px; }
+textarea { resize: vertical; }
+.botao-inline { width: auto; }
+.linha-titulo { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.linha-titulo h2 { margin-bottom: 16px; }
+.contador { background: var(--verde-claro); color: var(--verde-escuro); font-size: 12px; font-weight: 700; padding: 7px 10px; border-radius: 20px; }
+.busca { display: flex; gap: 9px; margin-bottom: 18px; }
+.busca input { flex: 1; min-width: 0; }
+.botao-busca { padding: 12px 18px; }
+.limpar { align-self: center; color: var(--verde-escuro); font-size: 13px; text-decoration: none; }
+.tabela-responsiva { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; background: #f5faf6; color: #526258; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
+th, td { padding: 14px 12px; border-bottom: 1px solid #edf1ed; vertical-align: middle; }
+td strong { color: #253b2c; }
+.botao-excluir { border: 1px solid #f0cccc; background: #fff; color: #a32b2b; border-radius: 7px; padding: 7px 9px; cursor: pointer; font: inherit; font-size: 12px; }
+.botao-excluir:hover { background: #fff2f2; }
+.vazio { text-align: center; padding: 32px 12px 22px; }
+.vazio-icone { display: grid; place-items: center; margin: 0 auto 12px; width: 44px; height: 44px; border-radius: 14px; background: var(--verde-claro); color: var(--verde); font-size: 27px; }
+.vazio h3 { font-size: 15px; margin: 0 0 7px; }
+.vazio p { font-size: 13px; color: var(--cinza); margin: 0; }
+.rodape { text-align: center; padding: 20px; font-size: 11px; color: #849087; }
+@media (max-width: 650px) {
+    .cartao-login { padding: 28px 22px; }
+    .topo { padding: 16px 18px; }
+    .topo-direita { gap: 10px; font-size: 12px; }
+    .conteudo { margin-top: 24px; padding: 0 14px; }
+    .painel { padding: 18px 14px; }
+    .grade-formulario { grid-template-columns: 1fr; }
+    .campo-largo { grid-column: auto; }
+    .busca { flex-wrap: wrap; }
+    .busca input { flex-basis: 100%; }
+    .linha-titulo { align-items: flex-start; }
+    table, tbody, tr, td { display: block; width: 100%; }
+    thead { display: none; }
+    tbody tr { border: 1px solid var(--borda); border-radius: 10px; margin-bottom: 12px; padding: 8px 12px; }
+    td { display: flex; justify-content: space-between; gap: 14px; border-bottom: 1px solid #f0f2f0; padding: 10px 0; overflow-wrap: anywhere; }
+    td:last-child { border-bottom: 0; }
+    td::before { content: attr(data-label); color: var(--cinza); font-size: 11px; font-weight: 700; flex-shrink: 0; }
+}

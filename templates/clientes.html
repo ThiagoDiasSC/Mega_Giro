@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes | Mega Giro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+    <header class="topo">
+        <a class="logo-pequena" href="{{ url_for('clientes') }}">MEGA <span>GIRO</span></a>
+        <div class="topo-direita">
+            <span>Olá, {{ session.get('usuario', 'usuário') }}</span>
+            <a class="link-sair" href="{{ url_for('sair') }}">Sair</a>
+        </div>
+    </header>
+
+    <main class="conteudo">
+        <section class="cabecalho-pagina">
+            <div>
+                <p class="sobretitulo">PAINEL DE CONTROLE</p>
+                <h1>Gestão de clientes</h1>
+                <p class="subtitulo">Cadastre e consulte os clientes da Mega Giro.</p>
+            </div>
+        </section>
+
+        {% with mensagens = get_flashed_messages(with_categories=true) %}
+            {% for categoria, mensagem in mensagens %}
+                <div class="aviso {{ categoria }}">{{ mensagem }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <section class="painel">
+            <h2>Novo cliente</h2>
+            <form method="POST" class="grade-formulario">
+                <div class="campo campo-largo">
+                    <label for="nome">Nome do cliente *</label>
+                    <input id="nome" name="nome" type="text" required placeholder="Nome completo ou nome da empresa">
+                </div>
+                <div class="campo">
+                    <label for="telefone">Telefone</label>
+                    <input id="telefone" name="telefone" type="tel" placeholder="(31) 99999-9999">
+                </div>
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input id="email" name="email" type="email" placeholder="cliente@email.com">
+                </div>
+                <div class="campo campo-largo">
+                    <label for="endereco">Endereço</label>
+                    <input id="endereco" name="endereco" type="text" placeholder="Rua, número, bairro e cidade">
+                </div>
+                <div class="campo campo-largo">
+                    <label for="observacoes">Observações</label>
+                    <textarea id="observacoes" name="observacoes" rows="2" placeholder="Informações adicionais (opcional)"></textarea>
+                </div>
+                <div class="campo-largo">
+                    <button class="botao botao-inline" type="submit">+ Cadastrar cliente</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="painel">
+            <div class="linha-titulo">
+                <h2>Clientes cadastrados</h2>
+                <span class="contador">{{ clientes|length }} registro(s)</span>
+            </div>
+            <form method="GET" class="busca">
+                <input type="search" name="busca" value="{{ busca }}" placeholder="Buscar por nome, telefone ou e-mail">
+                <button class="botao botao-busca" type="submit">Buscar</button>
+                {% if busca %}<a class="limpar" href="{{ url_for('clientes') }}">Limpar</a>{% endif %}
+            </form>
+
+            {% if clientes %}
+                <div class="tabela-responsiva">
+                    <table>
+                        <thead><tr><th>Nome</th><th>Telefone</th><th>E-mail</th><th>Endereço</th><th>Ação</th></tr></thead>
+                        <tbody>
+                        {% for cliente in clientes %}
+                            <tr>
+                                <td data-label="Nome"><strong>{{ cliente['nome'] }}</strong></td>
+                                <td data-label="Telefone">{{ cliente['telefone'] or '—' }}</td>
+                                <td data-label="E-mail">{{ cliente['email'] or '—' }}</td>
+                                <td data-label="Endereço">{{ cliente['endereco'] or '—' }}</td>
+                                <td data-label="Ação">
+                                    <form method="POST" action="{{ url_for('excluir_cliente', cliente_id=cliente['id']) }}" onsubmit="return confirm('Deseja realmente excluir este cliente?');">
+                                        <button class="botao-excluir" type="submit">Excluir</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="vazio">
+                    <div class="vazio-icone">＋</div>
+                    <h3>Nenhum cliente encontrado</h3>
+                    <p>Cadastre o primeiro cliente usando o formulário acima.</p>
+                </div>
+            {% endif %}
+        </section>
+    </main>
+    <footer class="rodape">MEGA GIRO · Sistema de Gestão de Clientes</footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Mega Giro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body class="pagina-login">
+    <main class="cartao-login">
+        <div class="marca">
+            <div class="icone-marca">MG</div>
+            <h1>MEGA <span>GIRO</span></h1>
+            <p>Sistema de Gestão de Clientes</p>
+        </div>
+
+        <form method="POST" class="formulario">
+            <h2>Acessar o sistema</h2>
+            <label for="usuario">Usuário</label>
+            <input id="usuario" name="usuario" type="text" placeholder="Digite seu usuário" autocomplete="username" required>
+
+            <label for="senha">Senha</label>
+            <input id="senha" name="senha" type="password" placeholder="Digite sua senha" autocomplete="current-password" required>
+
+            {% with mensagens = get_flashed_messages(with_categories=true) %}
+                {% for categoria, mensagem in mensagens %}
+                    <div class="aviso {{ categoria }}">{{ mensagem }}</div>
+                {% endfor %}
+            {% endwith %}
+
+            <button type="submit" class="botao">ENTRAR</button>
+        </form>
+        <p class="rodape-login">Acesso restrito a usuários autorizados</p>
+    </main>
+</body>
+</html>
