@@ -1,1 +1,0 @@
-Subi hoje 12/10/2026 as pastas Layout (contem a pasta de cabeçalho, a pasta de rodapé e o arquivo style.css), a pasta trocar_senha (contem as duas paginas de redefinição) e o arquivo index.html que é o a tela de login.
