@@ -1,3 +1,6 @@
+/* Cores definidas em src/index.css */
+
+/* Página inteira */
 .home-page {
   min-height: 100vh;
   display: flex;
@@ -7,6 +10,7 @@
     Helvetica, Arial, sans-serif;
 }
 
+/* Cabeçalho */
 .home-header {
   display: flex;
   align-items: center;
@@ -17,28 +21,33 @@
   color: var(--texto-sobre-verde);
 }
 
+/* Logo */
 .home-header-logo {
   height: 46px;
   width: auto;
 }
 
+/* Nome do usuário */
 .home-header-user {
   font-size: 14px;
   font-weight: 600;
 }
 
+/* Corpo: menu lateral + conteúdo */
 .home-body {
   flex: 1;
   display: flex;
   min-height: 0;
 }
 
+/* Conteúdo */
 .home-content {
   flex: 1;
   min-width: 0;
   background: var(--fundo-card);
 }
 
+/* Celular */
 @media (max-width: 480px) {
   .home-header {
     padding: 0 16px;

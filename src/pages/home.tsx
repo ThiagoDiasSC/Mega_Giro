@@ -1,10 +1,13 @@
 import Sidebar from '../components/Sidebar'
 import './home.css'
 
+// Página Home: cabeçalho no topo, menu lateral à esquerda e conteúdo à direita.
 function Home() {
   return (
     <div className="home-page">
+      {/* Cabeçalho */}
       <header className="home-header">
+        {/* Logo em SVG (a cor vem do CSS do cabeçalho) */}
         <svg
           className="home-header-logo"
           viewBox="0 0 400 180"
@@ -53,11 +56,14 @@ function Home() {
           </g>
         </svg>
 
+        {/* TODO: trocar pelo nome do usuário logado */}
         <span className="home-header-user">Usuario</span>
       </header>
 
+      {/* Corpo: menu lateral + conteúdo */}
       <div className="home-body">
         <Sidebar />
+        {/* Conteúdo da Home (ainda vazio) */}
         <main className="home-content" />
       </div>
     </div>
