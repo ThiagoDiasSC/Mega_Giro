@@ -9,12 +9,10 @@ function Login() {
   const [mostrarSenha, setMostrarSenha] = useState(false)
   const [carregando, setCarregando] = useState(false)
   const [erro, setErro] = useState('')
-  const [sucesso, setSucesso] = useState(false)
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setErro('')
-    setSucesso(false)
 
     if (!email.trim() || !senha.trim()) {
       setErro('Preencha o e-mail e a senha.')
@@ -31,8 +29,7 @@ function Login() {
     setCarregando(true)
 
     window.setTimeout(() => {
-      setCarregando(false)
-      setSucesso(true)
+      window.location.href = '/home'
     }, 700)
   }
 
@@ -194,12 +191,6 @@ function Login() {
             {erro && (
               <p className="login-message login-message-error" role="alert">
                 {erro}
-              </p>
-            )}
-
-            {sucesso && (
-              <p className="login-message login-message-success" role="status">
-                Validação demonstrativa concluída. A autenticação ainda não foi implementada.
               </p>
             )}
 

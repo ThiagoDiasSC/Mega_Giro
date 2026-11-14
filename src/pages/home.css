@@ -1,0 +1,50 @@
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 24px;
+  background: linear-gradient(90deg, #005229 0%, #007a3d 100%);
+  color: #ffffff;
+}
+
+.home-header-logo {
+  height: 46px;
+  width: auto;
+}
+
+.home-header-user {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.home-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.home-content {
+  flex: 1;
+  min-width: 0;
+  background: #ffffff;
+}
+
+@media (max-width: 480px) {
+  .home-header {
+    padding: 0 16px;
+  }
+
+  .home-header-logo {
+    height: 38px;
+  }
+}
