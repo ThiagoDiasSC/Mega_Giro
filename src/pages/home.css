@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: var(--fundo-card);
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto,
     Helvetica, Arial, sans-serif;
 }
@@ -13,8 +13,8 @@
   justify-content: space-between;
   height: 60px;
   padding: 0 24px;
-  background: linear-gradient(90deg, #005229 0%, #007a3d 100%);
-  color: #ffffff;
+  background: linear-gradient(90deg, var(--verde-escuro) 0%, var(--verde-principal) 100%);
+  color: var(--texto-sobre-verde);
 }
 
 .home-header-logo {
@@ -36,7 +36,7 @@
 .home-content {
   flex: 1;
   min-width: 0;
-  background: #ffffff;
+  background: var(--fundo-card);
 }
 
 @media (max-width: 480px) {

@@ -57,7 +57,7 @@ function ResetPassword() {
             role="img"
             aria-label="Mega Giro — Distribuidor Autorizado"
           >
-            <g fill="#ffffff">
+            <g fill="currentColor">
               <text
                 x="10"
                 y="85"
@@ -94,7 +94,7 @@ function ResetPassword() {
               <path
                 d="M 330 60 C 310 30, 200 40, 100 100 C 60 124, 50 145, 65 152 C 75 157, 120 145, 170 120"
                 fill="none"
-                stroke="#ffffff"
+                stroke="currentColor"
                 strokeWidth="8"
                 strokeLinecap="round"
               />

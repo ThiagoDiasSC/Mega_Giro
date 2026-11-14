@@ -1,17 +1,49 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
-  color: #252a27;
-  background: #f4f6f4;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  /* ===== Identidade visual — altere aqui para mudar todo o sistema ===== */
+
+  /* Verde da marca */
   --verde-principal: #168447;
   --verde-escuro: #106b38;
+  --verde-claro: #e3f1e7;
+  --verde-claro-hover: #d6eadc;
+  --verde-foco: color-mix(in srgb, var(--verde-principal) 15%, transparent);
+  --verde-sombra: color-mix(in srgb, var(--verde-principal) 25%, transparent);
+
+  /* Textos */
   --texto-principal: #252a27;
   --texto-secundario: #6b746e;
+  --texto-suave: #8a918d;
+  --texto-sobre-verde: #ffffff;
+
+  /* Fundos */
+  --fundo-pagina: #f4f6f4;
+  --fundo-card: #ffffff;
+  --fundo-input: #fafafa;
+  --fundo-hover: #f2f5f3;
+  --fundo-desabilitado: #eef2f5;
+
+  /* Bordas e sombras */
   --borda: #dce3de;
+  --borda-forte: #b9c0bc;
+  --sombra: rgba(0, 0, 0, 0.08);
+  --sombra-forte: rgba(0, 0, 0, 0.3);
+
+  /* Mensagens */
+  --erro: #c5221f;
+  --erro-fundo: #fce8e6;
+  --erro-borda: #f5c2c0;
+  --sucesso: #1e4620;
+  --sucesso-fundo: #e6f4ea;
+  --sucesso-borda: #b7e1cd;
+
+  color: var(--texto-principal);
+  background: var(--fundo-pagina);
 }
 
 * {
