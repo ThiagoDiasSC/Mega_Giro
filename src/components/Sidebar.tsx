@@ -132,12 +132,18 @@ const itensPrincipais = [
 
 function Sidebar() {
   const [ativo, setAtivo] = useState('visao-geral')
-  const [acoesAberto, setAcoesAberto] = useState(true)
+  const [acoesAberto, setAcoesAberto] = useState(false)
   const [configAberto, setConfigAberto] = useState(true)
   const [modoEscuro, setModoEscuro] = useState(false)
 
   function classeItem(id: string) {
     return ativo === id ? 'sidebar-item sidebar-item-active' : 'sidebar-item'
+  }
+
+  // Abas fora de "Ações" fecham o grupo
+  function selecionarForaDeAcoes(id: string) {
+    setAtivo(id)
+    setAcoesAberto(false)
   }
 
   function handleSair() {
@@ -152,7 +158,7 @@ function Sidebar() {
         <button
           type="button"
           className={classeItem('visao-geral')}
-          onClick={() => setAtivo('visao-geral')}
+          onClick={() => selecionarForaDeAcoes('visao-geral')}
         >
           {icons.visaoGeral}
           <span>Visão geral</span>
@@ -193,7 +199,7 @@ function Sidebar() {
               key={item.id}
               type="button"
               className={classeItem(item.id)}
-              onClick={() => setAtivo(item.id)}
+              onClick={() => selecionarForaDeAcoes(item.id)}
             >
               {item.icon}
               <span>{item.label}</span>
