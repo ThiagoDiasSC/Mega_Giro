@@ -2,6 +2,8 @@ import Login from './pages/Login'
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import Home from './pages/home'
+import Ver from './pages/Ver'
+import Ow from './pages/Ow'
 
 function App() {
   const path = window.location.pathname
@@ -16,6 +18,14 @@ function App() {
 
   if (path === '/home') {
     return <Home />
+  }
+
+  if (path === '/ver') {
+    return <Ver />
+  }
+
+  if (path === '/ow') {
+    return <Ow />
   }
 
   return <Login />
