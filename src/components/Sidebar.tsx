@@ -130,8 +130,12 @@ const itensPrincipais = [
   { id: 'clientes', label: 'Clientes', icon: icons.usuarios },
 ]
 
-function Sidebar() {
-  const [ativo, setAtivo] = useState('visao-geral')
+type SidebarProps = {
+  ativo: string
+  onSelecionar: (id: string) => void
+}
+
+function Sidebar({ ativo, onSelecionar: setAtivo }: SidebarProps) {
   const [acoesAberto, setAcoesAberto] = useState(false)
   const [configAberto, setConfigAberto] = useState(true)
   const [modoEscuro, setModoEscuro] = useState(false)
