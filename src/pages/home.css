@@ -12,29 +12,6 @@
     Helvetica, Arial, sans-serif;
 }
 
-/* Cabeçalho */
-.home-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  padding: 0 24px;
-  background: linear-gradient(90deg, var(--verde-escuro) 0%, var(--verde-principal) 100%);
-  color: var(--texto-sobre-verde);
-}
-
-/* Logo */
-.home-header-logo {
-  height: 46px;
-  width: auto;
-}
-
-/* Nome do usuário */
-.home-header-user {
-  font-size: 14px;
-  font-weight: 600;
-}
-
 /* Corpo: menu lateral + conteúdo */
 .home-body {
   flex: 1;
@@ -51,17 +28,6 @@
   overflow-y: auto;
   overflow-x: hidden;
   background: var(--fundo-pagina);
-}
-
-/* Celular */
-@media (max-width: 480px) {
-  .home-header {
-    padding: 0 16px;
-  }
-
-  .home-header-logo {
-    height: 38px;
-  }
 }
 
 /* Área que recebe os elementos do Dashboard */

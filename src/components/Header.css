@@ -1,0 +1,32 @@
+.app-header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 24px;
+  background: linear-gradient(90deg, var(--verde-escuro) 0%, var(--verde-principal) 100%);
+  color: var(--texto-sobre-verde);
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+.app-header-logo {
+  height: 46px;
+  width: auto;
+}
+
+.app-header-user {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 0 16px;
+  }
+
+  .app-header-logo {
+    height: 38px;
+  }
+}
