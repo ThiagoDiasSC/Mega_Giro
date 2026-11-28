@@ -1,9 +1,14 @@
 
+import { useState } from 'react'
 import Sidebar from '../components/Sidebar'
+import Bonificacao from './Bonificacao'
 import './home.css'
 
 // Página Home: cabeçalho no topo, menu lateral à esquerda e conteúdo à direita.
 function Home() {
+  // Item selecionado no menu lateral (define o conteúdo exibido)
+  const [ativo, setAtivo] = useState('visao-geral')
+
   return (
     <div className="home-page">
       {/* Cabeçalho */}
@@ -63,10 +68,13 @@ function Home() {
 
       {/* Corpo: menu lateral + conteúdo */}
       <div className="home-body">
-        <Sidebar />
+        <Sidebar ativo={ativo} onSelecionar={setAtivo} />
 
         {/* Conteúdo principal da Home */}
         <main className="home-content">
+          {ativo === 'bonificacao' ? (
+            <Bonificacao />
+          ) : (
           <div className="dashboard-container">
 
 {/* Título da página */}
@@ -316,6 +324,7 @@ function Home() {
             </section>
 
           </div>
+          )}
         </main>
       </div>
     </div>
