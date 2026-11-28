@@ -1,7 +1,6 @@
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import CanalDashboard, { type ClienteCanal } from '../components/CanalDashboard'
-import './BlankPage.css'
 
 const clientesVer: ClienteCanal[] = [
   { codigo: '10231', nome: 'Mercado São Jorge', revenda: 'MEGAGIRO CF', meta: 420, realizado: 380, aderido: true, ressarcimento: 250, ressarcido: 250 },

@@ -80,3 +80,30 @@ button:disabled {
 #root {
   min-height: 100vh;
 }
+
+/* ===== Layout padrão das páginas internas (Header + Sidebar + conteúdo) ===== */
+
+/* Página inteira */
+.blank-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--fundo-card);
+}
+
+/* Corpo: menu lateral + conteúdo */
+.blank-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Conteúdo principal: rolagem independente */
+.blank-content {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  background: var(--fundo-pagina);
+}
