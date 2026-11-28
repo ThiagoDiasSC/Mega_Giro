@@ -115,11 +115,11 @@ const icons = {
   ),
 }
 
-const acoes = [
+const acoes: { id: string; label: string; icon: ReactNode; rota?: string }[] = [
   { id: 'bl-adega', label: 'BL Adega', icon: icons.estrela },
-  { id: 'ver', label: 'VER', icon: icons.carteira },
+  { id: 'ver', label: 'VER', icon: icons.carteira, rota: '/ver' },
   { id: 'rgb', label: 'RGB', icon: icons.rgb },
-  { id: 'ow', label: 'OW', icon: icons.garrafa },
+  { id: 'ow', label: 'OW', icon: icons.garrafa, rota: '/ow' },
   { id: 'combos', label: 'Combos', icon: icons.carrinho },
 ]
 
@@ -130,6 +130,14 @@ const itensPrincipais = [
   { id: 'clientes', label: 'Clientes', icon: icons.usuarios },
 ]
 
+function itemDaPaginaAtual() {
+  const acao = acoes.find((item) => item.rota === window.location.pathname)
+  return acao ? acao.id : 'visao-geral'
+}
+
+function Sidebar() {
+  const [ativo, setAtivo] = useState(itemDaPaginaAtual)
+  const [acoesAberto, setAcoesAberto] = useState(() => itemDaPaginaAtual() !== 'visao-geral')
 type SidebarProps = {
   ativo: string
   onSelecionar: (id: string) => void
@@ -162,7 +170,10 @@ function Sidebar({ ativo, onSelecionar: setAtivo }: SidebarProps) {
         <button
           type="button"
           className={classeItem('visao-geral')}
-          onClick={() => selecionarForaDeAcoes('visao-geral')}
+          onClick={() => {
+            selecionarForaDeAcoes('visao-geral')
+            if (window.location.pathname !== '/home') window.location.href = '/home'
+          }}
         >
           {icons.visaoGeral}
           <span>Visão geral</span>
@@ -188,7 +199,10 @@ function Sidebar({ ativo, onSelecionar: setAtivo }: SidebarProps) {
                 key={item.id}
                 type="button"
                 className={classeItem(item.id) + ' sidebar-subitem'}
-                onClick={() => setAtivo(item.id)}
+                onClick={() => {
+                  setAtivo(item.id)
+                  if (item.rota) window.location.href = item.rota
+                }}
               >
                 {item.icon}
                 <span>{item.label}</span>
