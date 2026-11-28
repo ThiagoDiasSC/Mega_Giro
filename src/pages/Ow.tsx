@@ -1,7 +1,6 @@
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import CanalDashboard, { type ClienteCanal } from '../components/CanalDashboard'
-import './BlankPage.css'
 
 const clientesOw: ClienteCanal[] = [
   { codigo: '11020', nome: 'Adega Real', revenda: 'MEGAGIRO CF', meta: 380, realizado: 300, aderido: true, ressarcimento: 220, ressarcido: 220 },

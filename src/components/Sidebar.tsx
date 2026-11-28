@@ -123,28 +123,26 @@ const acoes: { id: string; label: string; icon: ReactNode; rota?: string }[] = [
   { id: 'combos', label: 'Combos', icon: icons.carrinho },
 ]
 
-const itensPrincipais = [
-  { id: 'bonificacao', label: 'Controle de Bonificação', icon: icons.documento },
+const itensPrincipais: { id: string; label: string; icon: ReactNode; rota?: string }[] = [
+  { id: 'bonificacao', label: 'Controle de Bonificação', icon: icons.documento, rota: '/bonificacao' },
   { id: 'importacoes', label: 'Importações', icon: icons.documento },
   { id: 'cadastros', label: 'Cadastros', icon: icons.lista },
   { id: 'clientes', label: 'Clientes', icon: icons.usuarios },
 ]
 
 function itemDaPaginaAtual() {
-  const acao = acoes.find((item) => item.rota === window.location.pathname)
-  return acao ? acao.id : 'visao-geral'
+  const item = [...acoes, ...itensPrincipais].find((i) => i.rota === window.location.pathname)
+  return item ? item.id : 'visao-geral'
+}
+
+// O grupo "Ações" começa aberto só quando a página atual é uma das ações
+function paginaAtualEhAcao() {
+  return acoes.some((item) => item.rota === window.location.pathname)
 }
 
 function Sidebar() {
   const [ativo, setAtivo] = useState(itemDaPaginaAtual)
-  const [acoesAberto, setAcoesAberto] = useState(() => itemDaPaginaAtual() !== 'visao-geral')
-type SidebarProps = {
-  ativo: string
-  onSelecionar: (id: string) => void
-}
-
-function Sidebar({ ativo, onSelecionar: setAtivo }: SidebarProps) {
-  const [acoesAberto, setAcoesAberto] = useState(false)
+  const [acoesAberto, setAcoesAberto] = useState(paginaAtualEhAcao)
   const [configAberto, setConfigAberto] = useState(true)
   const [modoEscuro, setModoEscuro] = useState(false)
 
@@ -217,7 +215,10 @@ function Sidebar({ ativo, onSelecionar: setAtivo }: SidebarProps) {
               key={item.id}
               type="button"
               className={classeItem(item.id)}
-              onClick={() => selecionarForaDeAcoes(item.id)}
+              onClick={() => {
+                selecionarForaDeAcoes(item.id)
+                if (item.rota) window.location.href = item.rota
+              }}
             >
               {item.icon}
               <span>{item.label}</span>
