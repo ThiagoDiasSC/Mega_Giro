@@ -138,6 +138,13 @@ function itemDaPaginaAtual() {
 function Sidebar() {
   const [ativo, setAtivo] = useState(itemDaPaginaAtual)
   const [acoesAberto, setAcoesAberto] = useState(() => itemDaPaginaAtual() !== 'visao-geral')
+type SidebarProps = {
+  ativo: string
+  onSelecionar: (id: string) => void
+}
+
+function Sidebar({ ativo, onSelecionar: setAtivo }: SidebarProps) {
+  const [acoesAberto, setAcoesAberto] = useState(false)
   const [configAberto, setConfigAberto] = useState(true)
   const [modoEscuro, setModoEscuro] = useState(false)
 

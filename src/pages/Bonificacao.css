@@ -1,0 +1,45 @@
+/* Área principal da tela de Bonificação */
+.bonificacao-container {
+  width: 100%;
+  max-width: 1500px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Título da página */
+.bonificacao-title {
+  margin-bottom: 16px;
+}
+
+.bonificacao-title h1 {
+  margin: 0 0 6px;
+  color: #182230;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.bonificacao-title p {
+  margin: 0;
+  color: #667085;
+  font-size: 11px;
+}
+
+/* Painel branco */
+.bonificacao-content {
+  flex: 1;
+  min-height: 450px;
+  background: #FFFFFF;
+  border: 1px solid #EAECF0;
+  border-radius: 9px;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.06);
+}
+
+@media (max-width: 600px) {
+  .bonificacao-container {
+    padding: 12px;
+  }
+}
